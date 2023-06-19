@@ -1,4 +1,4 @@
-import * as jspicl from "https://raw.githubusercontent.com/DevTheo/deno-jspicl/v3.0.1pre1/src/mod.ts";
+import * as jspicl from "https://raw.githubusercontent.com/DevTheo/deno-jspicl/v3.0.1pre3/src/mod.ts";
 
 export const banner = `--[[
     generated with jspicl,
