@@ -1,7 +1,7 @@
 // import { expect } from "chai";
 // import fs from "fs";
 import { describe, it, expect } from "./bdd.js";
-import plugin from "../jspicl-cli.bundle.js";
+import plugin from "../src/plugin.ts";
 import { defaultOptions } from "../src/constants.ts";
 
 const __dirname = Deno.cwd();
@@ -14,7 +14,8 @@ const defaultUnitTestOptions = {
   reloadOnSave: false
 };
 
-const setup = options => plugin({
+// deno-lint-ignore no-explicit-any
+const setup = (options: any) => plugin({
   ...defaultUnitTestOptions,
   ...options
 });
@@ -26,7 +27,7 @@ describe("jspicl-cli", () => {
     });
 
     const result = await renderChunk("var a = 1;");
-    expect(result.code).to.equal(Deno.readTextFileSync(`${__dirname}/expected/replaceLua.txt`, "utf8"));
+    expect(result.code).to.equal(Deno.readTextFileSync(`${__dirname}/expected/replaceLua.txt`));
   });
 
   it("should handle case where cartridge does not end with two newlines", async () => {
